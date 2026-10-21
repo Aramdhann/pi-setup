@@ -1,0 +1,50 @@
+{
+  "$schema": "https://pi.dev/schemas/models.schema.json",
+  "providers": {
+    "9router": {
+      "baseUrl": "https://YOUR-9ROUTER-HOST.example/v1",
+      "api": "openai-completions",
+      "apiKey": "${NINE_ROUTER_API_KEY}",
+      "models": [
+        {
+          "id": "work-daily-used",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 128000
+        },
+        {
+          "id": "long-context",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 872000,
+          "maxTokens": 128000
+        },
+        {
+          "id": "review",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 200000,
+          "maxTokens": 128000
+        },
+        {
+          "id": "cheap-fast",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 200000,
+          "maxTokens": 131072
+        }
+      ]
+    }
+  }
+}
