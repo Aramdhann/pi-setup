@@ -49,10 +49,11 @@ Only use the captured `npm:billion-context@0.1.208` entry for this setup. Do not
 
 Context7 works without a key at IP-based limits. For higher quotas, configure `CONTEXT7_API_KEY` privately in your shell/secret manager; never put its value in this repository.
 
-The snapshot also includes `pi-web-access` and `pi-cc-extensions`:
+The snapshot also includes `pi-web-access`, `pi-cc-extensions`, and `cc-safety-net`:
 
 - Web access supports keyless search through Exa MCP. Optional provider keys and endpoints belong in private `~/.pi/agent/web-search.json` or environment variables; do not commit them. Browser-cookie access is opt-in; leave it disabled unless explicitly needed.
 - CC styling uses `/ccstyle` and optional `~/.pi/agent/pi-cc-extensions.json`. No preferences file was captured, so package defaults apply. Bundled CC Dark/CC Light themes can be selected through `/settings`; the snapshot keeps the existing `dark` theme.
+- Safety Net loads through the pinned Pi package; no separate all-CLI installer is needed for this restore. Use `/cc-safety-net` for help. No custom policy is captured; review local policy separately. It checks tool calls, but is not a sandbox or a replacement for backups and least-privilege credentials.
 
 ## 4. Configure model access privately
 
@@ -67,7 +68,7 @@ Alternatively, use Pi `/login` and `/model` to choose another provider, then sav
 
 ## 5. Verify interactively
 
-- Run `pi list`: confirm eight captured packages or explain intentional differences.
+- Run `pi list`: confirm nine captured packages or explain intentional differences.
 - Start Pi and inspect startup diagnostics for extension errors and duplicate skill names.
 - Run `/reload`; confirm `/skill:ponytail` and `/skill:karpathy-guidelines` resolve.
 - Ask a library-documentation question; confirm `resolve-library-id` and `query-docs` work.
@@ -75,6 +76,7 @@ Alternatively, use Pi `/login` and `/model` to choose another provider, then sav
 - Confirm `fffind` and `ffgrep` tools are available.
 - Confirm `web_search`, `source_check`, `fetch_content`, and `get_search_content` load; try a public web search and URL fetch to verify network/provider access.
 - Run `/ccstyle` and `/context`; confirm CC styling loads without renderer/footer conflicts with other extensions.
+- Confirm Safety Net loads without extension errors and `/cc-safety-net` resolves. Verify blocking only in a disposable test repository; never test destructive commands against real work or probe real secrets.
 - Confirm billion-context compression/delegate tools load. Test a small read-only delegate with a configured provider; package installation alone does not guarantee delegate authentication.
 - Use `/model` and a small request to verify provider access; never print keys while debugging.
 

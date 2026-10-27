@@ -6,7 +6,7 @@ This is a configuration backup, **not an installable Pi package**. Clone it and 
 
 ## Contents
 
-- `config/pi-agent/settings.json`: existing display/model preferences; eight package sources pinned to installed revisions.
+- `config/pi-agent/settings.json`: existing display/model preferences; nine package sources pinned to installed revisions.
 - `config/pi-agent/extensions/pi-rtk-optimizer/config.json`: current RTK extension options.
 - `config/pi-agent/pi-droid-styling.json`: saved styling preferences (no matching standalone styling extension was found; may be inactive).
 - `config/pi-agent/models.example.json`: custom 9router model definitions, with endpoint and credential replaced by placeholders.
@@ -31,6 +31,7 @@ Ponytail and other package-provided skills/extensions come from pinned packages,
 | billion-context | `0.1.208` |
 | pi-web-access | `0.45.0` |
 | pi-cc-extensions | `3d0c7195094f9441c3adcbd0c4681c5491932bd3` |
+| cc-safety-net | `2.6.19` |
 
 Source preferences used unpinned package names; backup pins them to make restoration more repeatable. Live laptop settings were not changed. Git package changes were confined to generated lockfiles; these were not copied.
 
@@ -38,6 +39,8 @@ Source preferences used unpinned package names; backup pins them to make restora
 
 - **pi-web-access** adds `web_search`, `source_check`, `fetch_content`, and `get_search_content` for web research and URL/PDF/video/GitHub content retrieval. Keyless search is available through Exa MCP; optional provider credentials belong in private local configuration, never this repository.
 - **pi-cc-extensions** adds Claude Code-style tool output, rich diffs, a custom footer, `/ccstyle` settings, `/context` inspection, session references, and bundled CC Dark/CC Light themes. It can display quota information from `@narumitw/pi-usage`.
+
+- **cc-safety-net** checks Pi tool calls to block destructive commands and secret-file access before execution. `/cc-safety-net` provides help with blocks, rules, and diagnostics. It is not a sandbox: it does not contain processes, set filesystem permissions, or monitor network egress. No Safety Net policy or logs are included in this snapshot.
 
 Neither `~/.pi/agent/web-search.json` nor `~/.pi/agent/pi-cc-extensions.json` existed when these packages were captured; no package-specific preferences were copied. Configure them locally if needed. The older `pi-droid-styling.json` remains a separate, potentially inactive preference file.
 
