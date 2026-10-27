@@ -45,9 +45,14 @@ pi list
 
 On an existing setup, review all configured package entries before running this command: it reconciles more than just this backup's entries. Pinned revisions should remain pinned. Package installation executes third-party code; inspect sources before trusting them. Native binaries used by packages may require platform-specific setup; inspect startup warnings rather than copying binaries from the old laptop.
 
-Only use the captured `npm:billion-context@0.1.204` entry for this setup. Do not additionally install the legacy `billion-context-pi` extension: native and legacy integrations can double-compress context.
+Only use the captured `npm:billion-context@0.1.208` entry for this setup. Do not additionally install the legacy `billion-context-pi` extension: native and legacy integrations can double-compress context.
 
 Context7 works without a key at IP-based limits. For higher quotas, configure `CONTEXT7_API_KEY` privately in your shell/secret manager; never put its value in this repository.
+
+The snapshot also includes `pi-web-access` and `pi-cc-extensions`:
+
+- Web access supports keyless search through Exa MCP. Optional provider keys and endpoints belong in private `~/.pi/agent/web-search.json` or environment variables; do not commit them. Browser-cookie access is opt-in; leave it disabled unless explicitly needed.
+- CC styling uses `/ccstyle` and optional `~/.pi/agent/pi-cc-extensions.json`. No preferences file was captured, so package defaults apply. Bundled CC Dark/CC Light themes can be selected through `/settings`; the snapshot keeps the existing `dark` theme.
 
 ## 4. Configure model access privately
 
@@ -62,12 +67,14 @@ Alternatively, use Pi `/login` and `/model` to choose another provider, then sav
 
 ## 5. Verify interactively
 
-- Run `pi list`: confirm six captured packages or explain intentional differences.
+- Run `pi list`: confirm eight captured packages or explain intentional differences.
 - Start Pi and inspect startup diagnostics for extension errors and duplicate skill names.
 - Run `/reload`; confirm `/skill:ponytail` and `/skill:karpathy-guidelines` resolve.
 - Ask a library-documentation question; confirm `resolve-library-id` and `query-docs` work.
 - Run `/rtk show` and `/rtk verify` to check effective config and RTK availability.
 - Confirm `fffind` and `ffgrep` tools are available.
+- Confirm `web_search`, `source_check`, `fetch_content`, and `get_search_content` load; try a public web search and URL fetch to verify network/provider access.
+- Run `/ccstyle` and `/context`; confirm CC styling loads without renderer/footer conflicts with other extensions.
 - Confirm billion-context compression/delegate tools load. Test a small read-only delegate with a configured provider; package installation alone does not guarantee delegate authentication.
 - Use `/model` and a small request to verify provider access; never print keys while debugging.
 

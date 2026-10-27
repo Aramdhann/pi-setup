@@ -7,8 +7,10 @@
     "git:github.com/MasuRii/pi-rtk-optimizer@d155d253cb2f1358e34e717d47a82ebccb08cb8e",
     "npm:@ff-labs/pi-fff@0.11.0",
     "npm:@upstash/context7-pi@0.1.3",
-    "npm:@narumitw/pi-usage@0.67.0",
-    "npm:billion-context@0.1.204"
+    "npm:@narumitw/pi-usage@0.68.3",
+    "npm:billion-context@0.1.208",
+    "npm:pi-web-access@0.45.0",
+    "git:github.com/minuque/pi-cc-extensions@3d0c7195094f9441c3adcbd0c4681c5491932bd3"
   ],
   "quietStartup": false
 }

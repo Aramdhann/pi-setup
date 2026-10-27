@@ -6,7 +6,7 @@ This is a configuration backup, **not an installable Pi package**. Clone it and 
 
 ## Contents
 
-- `config/pi-agent/settings.json`: existing display/model preferences; six package sources pinned to installed revisions.
+- `config/pi-agent/settings.json`: existing display/model preferences; eight package sources pinned to installed revisions.
 - `config/pi-agent/extensions/pi-rtk-optimizer/config.json`: current RTK extension options.
 - `config/pi-agent/pi-droid-styling.json`: saved styling preferences (no matching standalone styling extension was found; may be inactive).
 - `config/pi-agent/models.example.json`: custom 9router model definitions, with endpoint and credential replaced by placeholders.
@@ -27,10 +27,19 @@ Ponytail and other package-provided skills/extensions come from pinned packages,
 | pi-rtk-optimizer | `d155d253cb2f1358e34e717d47a82ebccb08cb8e` |
 | @ff-labs/pi-fff | `0.11.0` |
 | @upstash/context7-pi | `0.1.3` |
-| @narumitw/pi-usage | `0.67.0` |
-| billion-context | `0.1.204` |
+| @narumitw/pi-usage | `0.68.3` |
+| billion-context | `0.1.208` |
+| pi-web-access | `0.45.0` |
+| pi-cc-extensions | `3d0c7195094f9441c3adcbd0c4681c5491932bd3` |
 
 Source preferences used unpinned package names; backup pins them to make restoration more repeatable. Live laptop settings were not changed. Git package changes were confined to generated lockfiles; these were not copied.
+
+## New packages
+
+- **pi-web-access** adds `web_search`, `source_check`, `fetch_content`, and `get_search_content` for web research and URL/PDF/video/GitHub content retrieval. Keyless search is available through Exa MCP; optional provider credentials belong in private local configuration, never this repository.
+- **pi-cc-extensions** adds Claude Code-style tool output, rich diffs, a custom footer, `/ccstyle` settings, `/context` inspection, session references, and bundled CC Dark/CC Light themes. It can display quota information from `@narumitw/pi-usage`.
+
+Neither `~/.pi/agent/web-search.json` nor `~/.pi/agent/pi-cc-extensions.json` existed when these packages were captured; no package-specific preferences were copied. Configure them locally if needed. The older `pi-droid-styling.json` remains a separate, potentially inactive preference file.
 
 ## Security and limits
 
