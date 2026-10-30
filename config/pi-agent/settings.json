@@ -11,7 +11,8 @@
     "npm:billion-context@0.1.208",
     "npm:pi-web-access@0.45.0",
     "git:github.com/minuque/pi-cc-extensions@3d0c7195094f9441c3adcbd0c4681c5491932bd3",
-    "npm:cc-safety-net@2.6.19"
+    "npm:cc-safety-net@2.6.19",
+    "git:github.com/miqdadbadjuber/anti-slop@3005235d030b4793146ad9afe8d01045efd90e1d"
   ],
   "quietStartup": false
 }
